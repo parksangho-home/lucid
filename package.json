@@ -2,13 +2,22 @@
   "name": "lucidspace",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "verify:client-bundle": "node --env-file-if-exists=.env.local scripts/check-client-bundle.mjs",
+    "db:setup": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/check-supabase.ts",
+    "lotto:import": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/import-draws.ts",
+    "lotto:sync": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/sync-lotto.ts",
+    "lotto:sync:all": "node --experimental-strip-types --env-file-if-exists=.env.local scripts/sync-lotto.ts --all"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.57.4",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8"
