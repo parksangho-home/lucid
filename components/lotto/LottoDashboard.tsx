@@ -1,5 +1,4 @@
 import { LottoBalls } from "./LottoBalls";
-import { AuthControls } from "./AuthControls";
 import { GenerateWeeklyButton } from "./GenerateWeeklyButton";
 import {
   STRATEGIES,
@@ -301,20 +300,17 @@ export function LottoDashboard({
               <span className="muted">{weekly.length} / 5 GAME</span>
             </h2>
           </div>
-          {userName && <AuthControls name={userName} />}
         </div>
         {!userName && (
           <div className="login-callout">
             <p>
               {current ? "추천과 개인 기록을 이용하려면 로그인하세요." : "지난 회차와 전략 설명은 누구나 볼 수 있습니다."}
             </p>
-            {authReady ? (
-              <AuthControls />
-            ) : (
-              <span className="muted small">
-                로그인 설정을 기다리고 있습니다.
-              </span>
-            )}
+            <span className="muted small">
+              {authReady
+                ? "상단의 Google 로그인으로 이용할 수 있습니다."
+                : "로그인 설정을 기다리고 있습니다."}
+            </span>
           </div>
         )}
         {userName && current?.open && !complete && weekly.length === 0 && (

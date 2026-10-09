@@ -216,6 +216,62 @@ main {
   align-items: center;
   gap: 12px;
 }
+.header-auth {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.header-auth button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 34px;
+  padding: 8px 12px;
+  border: 1px solid #9be5ed2e;
+  border-radius: 4px;
+  background: #0d1624;
+  color: #c9d7e8;
+  font-family: Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.header-auth button:hover {
+  border-color: #9be5ed68;
+  color: var(--accent);
+}
+.header-auth button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+.header-auth-user {
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.header-auth-action {
+  color: var(--muted);
+}
+.header-auth-status {
+  font-family: Consolas, monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.header-auth-error {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: max-content;
+  max-width: 220px;
+  padding: 7px 9px;
+  border: 1px solid #e9a4a440;
+  border-radius: 4px;
+  background: #160e14f2;
+  color: #e9a4a4;
+  font-size: 10px;
+}
 .live-dot {
   display: inline-block;
   flex-shrink: 0;
@@ -992,6 +1048,9 @@ a.card-link:hover {
   .header-coordinate {
     display: none;
   }
+  .header-auth-user {
+    max-width: 80px;
+  }
   .container {
     width: calc(100% - 64px);
   }
@@ -1036,6 +1095,18 @@ a.card-link:hover {
   }
   .brand {
     font-size: 13px;
+  }
+  .header-auth {
+    margin-left: auto;
+  }
+  .header-auth button {
+    min-height: 32px;
+    padding: 7px 9px;
+    font-size: 8px;
+  }
+  .header-auth-user,
+  .header-auth-action {
+    display: none;
   }
   .menu-toggle {
     display: block;

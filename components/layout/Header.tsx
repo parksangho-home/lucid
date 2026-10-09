@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navigation } from "@/data/navigation";
+import { SiteAuthControls } from "@/components/auth/SiteAuthControls";
 
 export function Header() {
   const pathname = usePathname();
@@ -61,9 +62,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <span className="header-coordinate">
-          PERSONAL UNIVERSE <span className="live-dot" />
-        </span>
+        <SiteAuthControls />
       </div>
     </header>
   );
