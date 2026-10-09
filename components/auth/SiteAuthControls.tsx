@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { loginReturnCookie } from "@/lib/supabase/login-return";
 
 type HeaderUser = {
   name?: string;
@@ -58,11 +59,11 @@ export function SiteAuthControls() {
     setError("");
     try {
       const supabase = createClient();
-      const next = window.location.pathname + window.location.search;
+      document.cookie = loginReturnCookie(window.location.pathname, window.location.protocol === "https:");
       const { error: signInError } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+          redirectTo: `${window.location.origin}/auth/callback`,
         },
       });
       if (signInError) throw signInError;

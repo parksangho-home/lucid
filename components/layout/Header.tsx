@@ -2,13 +2,34 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { navigation } from "@/data/navigation";
 import { SiteAuthControls } from "@/components/auth/SiteAuthControls";
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [isDashboardOwner, setIsDashboardOwner] = useState(false);
+  useEffect(() => {
+    const supabase = createClient();
+    let active = true;
+    let revision = 0;
+    const check = async () => {
+      const current = ++revision;
+      setIsDashboardOwner(false);
+      try {
+        const response = await fetch("/api/dashboard-access", { cache: "no-store" });
+        const result = await response.json();
+        if (active && current === revision) setIsDashboardOwner(response.ok && result.authorized === true);
+      } catch { if (active && current === revision) setIsDashboardOwner(false); }
+    };
+    void check();
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => { void check(); });
+    window.addEventListener("focus", check);
+    return () => { active = false; revision++; subscription.unsubscribe(); window.removeEventListener("focus", check); };
+  }, []);
+
   return (
     <header className="header">
       <div className="container header-inner">
@@ -61,6 +82,11 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          {isDashboardOwner && (
+            <a href="/dashboard" onClick={() => setOpen(false)}>
+              DASHBOARD
+            </a>
+          )}
         </nav>
         <SiteAuthControls />
       </div>
