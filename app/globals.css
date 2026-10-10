@@ -1104,8 +1104,7 @@ a.card-link:hover {
     padding: 7px 9px;
     font-size: 8px;
   }
-  .header-auth-user,
-  .header-auth-action {
+  .header-auth-user {
     display: none;
   }
   .menu-toggle {
