@@ -822,6 +822,66 @@ a.card-link:hover {
 .notes-placeholder .tags {
   margin: 0 0 25px;
 }
+.notes-board { padding: 18px 0 70px; }
+.notes-board-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+.notes-board-filters { display: flex; flex-wrap: wrap; gap: 7px; }
+.notes-board button { cursor: pointer; }
+.notes-board-filters button, .notes-board-toolbar > button:not(.notes-board-primary), .notes-board-detail > button, .notes-board-actions button, .notes-board-pagination button { border: 1px solid var(--line); border-radius: 7px; padding: 8px 12px; background: transparent; color: inherit; }
+.notes-board-filters button.active { background: #a2b7ca; color: #101923; }
+.notes-board-primary { background: #a2b7ca; color: #101923; border: 0; border-radius: 7px; padding: 10px 16px; font-weight: 600; }
+.notes-board input, .notes-board select, .notes-board textarea { display: block; width: 100%; box-sizing: border-box; padding: 13px; margin: 12px 0; background: transparent; color: inherit; border: 1px solid var(--line); border-radius: 7px; font: inherit; }
+.notes-board select option { background: #182432; }
+.notes-board-list { border-top: 1px solid var(--line); }
+.notes-board-item { display: flex; width: 100%; flex-direction: column; text-align: left; gap: 10px; padding: 24px 6px; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: inherit; }
+.notes-board-item strong { font-size: 18px; font-weight: 500; }
+.notes-board-meta, .notes-board-excerpt { font-size: 12px; color: var(--muted); line-height: 1.8; }
+.notes-board-more { font-size: 11px; color: #a2b7ca; }
+.notes-board-detail h2 { font-size: clamp(22px, 4vw, 32px); margin: 16px 0 28px; }
+.notes-board-markdown { min-height: 120px; line-height: 1.9; overflow-wrap: anywhere; }
+.notes-board-markdown p, .notes-board-markdown ul, .notes-board-markdown ol { margin: 12px 0; }
+.notes-board-markdown ul, .notes-board-markdown ol { padding-left: 24px; }
+.notes-board-markdown a { color: #a2b7ca; text-decoration: underline; }
+.notes-board-markdown pre { overflow-x: auto; padding: 14px; border: 1px solid var(--line); border-radius: 8px; }
+.notes-board-markdown img { max-width: 100%; }
+.notes-board-actions, .notes-board-pagination { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 26px; }
+.notes-board-error { color: #ff9b9b; margin: 12px 0; }
+.notes-board-empty { padding: 32px 0; color: var(--muted); }
+.notes-board button:disabled { opacity: .5; cursor: default; }
+
+.notes-entry {
+  border-block: 1px solid var(--line);
+  padding: 30px 0 36px;
+}
+.notes-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.notes-entry h2 {
+  font-size: clamp(19px, 3vw, 25px);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.notes-entry p,
+.notes-entry li {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+.notes-entry ul {
+  padding-left: 22px;
+  margin: 16px 0;
+}
+.notes-entry .notes-entry-next {
+  margin-top: 20px;
+  color: #a2b7ca;
+}
 .notes-empty {
   display: flex;
   align-items: center;

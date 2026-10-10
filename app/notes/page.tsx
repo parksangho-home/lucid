@@ -1,5 +1,5 @@
 import { PageIntro } from "@/components/ui/PageIntro";
-import { NotesPlaceholder } from "@/components/notes/NotesPlaceholder";
+import { NotesBoard } from "@/components/notes/NotesBoard";
 export const metadata = { title: "NOTES" };
 export default function NotesPage() {
   return (
@@ -9,7 +9,7 @@ export default function NotesPage() {
         title="NOTES & DISCOVERIES"
         description="AI, 개발, 생산성과 안전. 새로운 것을 배우고 직접 실험하며 쌓아가는 기록입니다."
       />
-      <NotesPlaceholder />
+      <NotesBoard />
     </div>
   );
 }
