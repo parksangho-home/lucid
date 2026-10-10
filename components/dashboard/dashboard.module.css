@@ -1,0 +1,31 @@
+.shell {position:relative;max-width:1000px;margin:36px auto;padding:32px;background:#fafafa;color:#171717;border:1px solid #d4d4d4;border-radius:12px;font-size:18px;line-height:36px;overflow-wrap:anywhere}
+.shell h1 {font-size:30px;line-height:42px;margin:20px 0;font-weight:700}
+.shell h2 {font-size:20px;line-height:30px;margin:0 0 12px;font-weight:600}
+.shell p {margin:16px 0}
+.shell a {color:#262626;text-decoration:underline;text-underline-offset:4px}
+.shell button,.shell nav a {font-size:16px;line-height:24px;min-height:44px;padding:10px 16px;border:1px solid #a3a3a3;border-radius:6px;background:#fff;cursor:pointer}
+.shell button:disabled {opacity:.5;cursor:default}
+.shell :is(input,textarea) {color:#171717;background:white;border:1px solid #a3a3a3;border-radius:6px;padding:10px 12px;width:100%;font-size:18px;line-height:36px}
+.shell :is(input,textarea,button,a):focus-visible {outline:3px solid #525252;outline-offset:3px}
+.shell textarea {resize:vertical;white-space:pre-wrap}
+.shell label {display:block;font-size:16px;line-height:32px}
+.shell nav,.actions {display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:20px 0}
+.filters {display:grid;grid-template-columns:2fr 1fr;gap:16px;margin:24px 0}
+.check {display:flex!important;align-items:center;gap:10px}
+.check input {width:20px!important;height:20px}
+.form {display:grid;gap:20px}
+.form button {justify-self:start}
+.cards {display:grid;gap:20px}
+.card {padding:24px;background:white;border:1px solid #d4d4d4;border-radius:8px}
+.shell .meta {font-size:14px;line-height:24px;color:#525252}
+.excerpt {white-space:pre-wrap}
+.markdown {padding:24px 0;overflow-wrap:anywhere}
+.markdown h2 {margin-top:32px}
+.markdown h3 {font-size:20px;line-height:30px;margin:24px 0}
+.markdown :is(ul,ol) {padding-left:28px;list-style:revert}
+.markdown blockquote {padding-left:16px;border-left:3px solid #a3a3a3}
+.markdown pre {padding:16px;background:#ededed;border-radius:6px;overflow-x:auto;line-height:28px}
+.markdown code {font-size:16px}
+.markdown table {display:block;overflow-x:auto;border-collapse:collapse}
+.markdown :is(th,td) {border:1px solid #a3a3a3;padding:8px 12px}
+@media(max-width:600px) {.shell {margin:20px 12px;padding:20px}.filters {grid-template-columns:1fr}.shell h1 {font-size:24px;line-height:36px}}

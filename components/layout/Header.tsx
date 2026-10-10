@@ -7,7 +7,7 @@ import { createClient } from "@/lib/supabase/client";
 import { navigation } from "@/data/navigation";
 import { SiteAuthControls } from "@/components/auth/SiteAuthControls";
 
-export function Header() {
+export function Header({dashboardInternal = false}: {dashboardInternal?: boolean}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [isDashboardOwner, setIsDashboardOwner] = useState(false);
@@ -82,11 +82,15 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          {isDashboardOwner && (
-            <a href="/dashboard" onClick={() => setOpen(false)}>
+          {isDashboardOwner && (dashboardInternal ? (
+            <Link href="/dashboard" aria-current={pathname.startsWith("/dashboard") ? "page" : undefined} onClick={() => setOpen(false)}>
               DASHBOARD
-            </a>
-          )}
+            </Link>
+          ) : (
+            // The legacy zone is a different Next.js app and requires a full navigation.
+            // eslint-disable-next-line @next/next/no-html-link-for-pages
+            <a href="/dashboard" onClick={() => setOpen(false)}>DASHBOARD</a>
+          ))}
         </nav>
         <SiteAuthControls />
       </div>

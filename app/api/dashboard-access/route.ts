@@ -1,8 +1,14 @@
 import { cookies } from "next/headers";
+import { dashboardMode } from "@/lib/dashboard/routing";
+import { requireDashboardOwner } from "@/lib/dashboard/auth";
 export const dynamic = "force-dynamic";
 export async function GET() {
   const headers = new Headers({ "Cache-Control": "private, no-store", Vary: "Cookie" });
   let authorized = false;
+  if (dashboardMode() === "internal") {
+    try { const context = await requireDashboardOwner(); return Response.json({authorized: true, userId: context.userId}, {headers}); }
+    catch { return Response.json({authorized: false}, {headers}); }
+  }
   try {
     const upstream = process.env.DASHBOARD_UPSTREAM_ORIGIN || (process.env.NODE_ENV !== "production" ? "http://127.0.0.1:3001" : undefined);
     if (!upstream) return Response.json({ authorized }, { headers });
