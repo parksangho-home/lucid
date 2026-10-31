@@ -80,7 +80,7 @@ function predictionFromRow(
 }
 
 export function isDrawOpen(drawDate: string, now = new Date()) {
-  return now.getTime() < new Date(`${drawDate}T18:00:00+09:00`).getTime();
+  return now.getTime() < new Date(`${drawDate}T20:00:00+09:00`).getTime();
 }
 
 export async function getDashboard(userId?: string) {
