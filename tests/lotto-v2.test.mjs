@@ -66,11 +66,11 @@ test("draw validation and draw-day cutoff reject invalid inputs", () => {
   assert.throws(() => validateDraw([1, 2, 3, 4, 5, 46]));
   assert.doesNotThrow(() => validateDraw([1, 2, 3, 4, 5, 6]));
   assert.equal(
-    isDrawOpen("2026-09-26", new Date("2026-09-26T08:59:59Z")),
+    isDrawOpen("2026-09-26", new Date("2026-09-26T10:59:59Z")),
     true,
   );
   assert.equal(
-    isDrawOpen("2026-09-26", new Date("2026-09-26T09:00:00Z")),
+    isDrawOpen("2026-09-26", new Date("2026-09-26T11:00:00Z")),
     false,
   );
 });
